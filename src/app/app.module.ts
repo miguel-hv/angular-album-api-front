@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AlbumsPageComponent } from './pages/albums-page/albums-page.component';
 import { GalleryComponent } from './shared/components/gallery/gallery.component';
 import { AlbumsService } from './shared/services/albums.service';
+import { AlbumsEditPageComponent } from './pages/albums-page/pages/albums-edit-page/albums-edit-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsPageComponent,
     GalleryComponent,
+    AlbumsEditPageComponent,
   ],
   imports: [
     BrowserModule,

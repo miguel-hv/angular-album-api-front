@@ -1,3 +1,4 @@
+import { AlbumInterface } from './../../core/models/AlbumInterface';
 import { Component, OnInit } from '@angular/core';
 import { AlbumsService } from 'src/app/shared/services/albums.service';
 
@@ -8,7 +9,7 @@ import { AlbumsService } from 'src/app/shared/services/albums.service';
 })
 export class AlbumsPageComponent implements OnInit {
 
-  albumList: any; 
+  albumList: AlbumInterface[] = []; 
 
   constructor(private albumsService: AlbumsService) { }
 
@@ -19,9 +20,7 @@ export class AlbumsPageComponent implements OnInit {
 
         this.albumList = data;
 
-      })
-      
-    console.log(this.albumList);
+      })  
   } 
 
 }

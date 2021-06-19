@@ -8,6 +8,7 @@ import { AlbumsPageComponent } from './pages/albums-page/albums-page.component';
 import { GalleryComponent } from './shared/components/gallery/gallery.component';
 import { AlbumsService } from './shared/services/albums.service';
 import { AlbumsEditPageComponent } from './pages/albums-page/pages/albums-edit-page/albums-edit-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AlbumsEditPageComponent } from './pages/albums-page/pages/albums-edit-p
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [AlbumsService],
   bootstrap: [AppComponent]

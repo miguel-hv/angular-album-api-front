@@ -1,3 +1,4 @@
+import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,9 +10,14 @@ export class GalleryComponent implements OnInit {
 
   @Input() albumList:any;
 
-  constructor() { }
+  constructor(private albumService: AlbumsService) { }
 
   ngOnInit(): void {
+  }
+
+  albumDelete(album: string){
+    this.albumService.deleteAlbum(album).subscribe();
+    window.location.reload();
   }
 
 }

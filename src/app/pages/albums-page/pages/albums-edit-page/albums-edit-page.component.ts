@@ -21,7 +21,7 @@ export class AlbumsEditPageComponent implements OnInit {
 
     this.albumCreateForm = this.formBuilder.group({
       title: ['', Validators.required],
-      artist: [''],
+      artist: [''], //TODO: required field
       cover: [''],
       year: ['', [Validators.required, Validators.min(0), Validators.max(9999)]],
       genre: ['', Validators.required],
@@ -32,7 +32,7 @@ export class AlbumsEditPageComponent implements OnInit {
     this.artistsService.getArtists()
     .subscribe((data: any)=>{
       this.artistList = data; 
-      this.albumCreateForm.controls['artist'].setValue(data[0].name);
+      // this.albumCreateForm.controls['artist'].setValue(data[0]._id); //TODO: delete comment
       console.log(data);});
 
   }

@@ -22,4 +22,9 @@ export class AlbumsService {
     return this.http.post(albumPost, album);
   }
 
+  deleteAlbum (album: string) {
+    console.log('delete ejecutado'+`${albumPost}/${album}`);
+    return this.http.delete(`${albumPost}/${album}`);
+  }
+
 }

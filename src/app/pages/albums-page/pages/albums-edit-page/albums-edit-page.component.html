@@ -13,11 +13,11 @@
     </div>
 
     <label>Artist</label>
-    <input type="text" id="artist" formControlName="artist">
-    <div *ngIf="!albumCreateForm.get('artist').valid && 
-        (albumCreateForm.get('artist').dirty || submitted)">
-        Please provide a valid name
-    </div>
+    <select formControlName="artist">
+        <option *ngFor="let artist of artistList" [value]="artist">
+         {{ artist.name }}
+        </option>
+      </select> 
 
     <label>Cover</label>
     <input type="text" id="cover" formControlName="cover">

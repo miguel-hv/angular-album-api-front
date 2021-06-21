@@ -1,4 +1,6 @@
-import { AlbumsService } from 'src/app/shared/services/albums.service';
+import { ArtistInterface } from './../../../../core/models/ArtistInterface';
+import { ArtistsService } from './../../../../shared/services/artists/artists.service';
+import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 import { AlbumInterface } from './../../../../core/models/AlbumInterface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,13 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AlbumsEditPageComponent implements OnInit {
 
-  // albumCreateAndModify: FormGroup = null;
-  public albumCreateForm: any = null;
-  public submitted: boolean = false;
+  // albumCreateForm: FormGroup = null;
+  albumCreateForm: any = null;
+  submitted: boolean = false;
+  artistList: ArtistInterface[] = []; 
   
-  constructor(private formBuilder: FormBuilder, private albumsService: AlbumsService) { 
+  constructor(private formBuilder: FormBuilder, private artistsService: ArtistsService, private albumsService: AlbumsService ) { 
 
-    this.albumCreateForm=this.formBuilder.group({
+    this.albumCreateForm = this.formBuilder.group({
       title: ['', Validators.required],
       artist: [''],
       cover: [''],
@@ -26,9 +29,15 @@ export class AlbumsEditPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.artistsService.getArtists()
+    .subscribe((data: any)=>{
+      this.artistList = data; 
+      this.albumCreateForm.controls['artist'].setValue(data[0].name);
+      console.log(data);});
+
   }
 
-  public onSubmit(): void {
+  onSubmit(): void {
     this.submitted = true;
     
     if(this.albumCreateForm.valid){
@@ -43,7 +52,7 @@ export class AlbumsEditPageComponent implements OnInit {
       console.log(album);
 
       // this.albumCreateForm.reset();
-      this.albumsService.addAlbum(album).subscribe(res => {console.log(res)});
+      this.albumsService.addAlbum(album).subscribe();
       this.submitted = false;
     }
   }

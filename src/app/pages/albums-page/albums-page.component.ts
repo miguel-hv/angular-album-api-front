@@ -1,6 +1,6 @@
 import { AlbumInterface } from './../../core/models/AlbumInterface';
 import { Component, OnInit } from '@angular/core';
-import { AlbumsService } from 'src/app/shared/services/albums.service';
+import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 
 @Component({
   selector: 'app-albums-page',
@@ -15,12 +15,7 @@ export class AlbumsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.albumsService.getAlbums()
-      .subscribe((data: any)=>{
-        // const results: any[] = data;
-
-        this.albumList = data;
-
-      })  
+      .subscribe((data: any)=>{this.albumList = data;});
   } 
 
 }

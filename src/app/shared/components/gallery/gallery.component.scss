@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.c-gallery {
+    &__item{
+        cursor: pointer;
+    }
+    &__image {
+        width: 20vw;
+        object-fit: cover;
+    }
+    &__title {
+        font-weight: 700;
+        @include media-breakpoint-up(lg) {
+            font-size: 32px;
+            border-radius: 50%;
+        }
+    }
+    &__text{
+        text-align: center;
+        font-size: 24px;
+        @include media-breakpoint-up(lg) {
+            font-size: 32px;
+        }
+    }
+
+}

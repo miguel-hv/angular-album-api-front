@@ -2,44 +2,43 @@
 
 <h2>Modify collection</h2>
 
-<p>Add new albums or edit existing ones!</p>
-
+<!-- <p>{{artistList[0]._id}}</p> -->
 <form (ngSubmit)="onSubmit()" [formGroup]="albumCreateForm">
 
-        <label>Title</label>
-        <input type="text" id="title" formControlName="title">
-        <div *ngIf="!albumCreateForm.get('title').valid && 
-            (albumCreateForm.get('title').dirty || submitted)">
-            Please provide a valid name
-        </div>
+    <label>Title</label>
+    <input type="text" id="title" formControlName="title">
+    <div *ngIf="!albumCreateForm.get('title').valid && 
+        (albumCreateForm.get('title').dirty || submitted)">
+        Please provide a valid name
+    </div>
 
-        <label>Artist</label>
-        <input type="text" id="artist" formControlName="artist">
-        <div *ngIf="!albumCreateForm.get('artist').valid && 
-            (albumCreateForm.get('artist').dirty || submitted)">
-            Please provide a valid name
-        </div>
+    <label>Artist</label>
+    <input type="text" id="artist" formControlName="artist">
+    <div *ngIf="!albumCreateForm.get('artist').valid && 
+        (albumCreateForm.get('artist').dirty || submitted)">
+        Please provide a valid name
+    </div>
 
-        <label>Cover</label>
-        <input type="text" id="cover" formControlName="cover">
-        <div *ngIf="!albumCreateForm.get('cover').valid && 
-            (albumCreateForm.get('cover').dirty || submitted)">
-            Please provide a valid url
-        </div>
+    <label>Cover</label>
+    <input type="text" id="cover" formControlName="cover">
+    <div *ngIf="!albumCreateForm.get('cover').valid && 
+        (albumCreateForm.get('cover').dirty || submitted)">
+        Please provide a valid url
+    </div>
 
-        <label>Year</label>
-        <input type="text" id="year" formControlName="year">
-        <div *ngIf="!albumCreateForm.get('year').valid && 
-            (albumCreateForm.get('year').dirty || submitted)">
-            Please provide a valid year
-        </div>
+    <label>Year</label>
+    <input type="text" id="year" formControlName="year">
+    <div *ngIf="!albumCreateForm.get('year').valid && 
+        (albumCreateForm.get('year').dirty || submitted)">
+        Please provide a valid year
+    </div>
 
-        <label>Genre</label>
-        <input type="text" id="genre" formControlName="genre">
-        <div *ngIf="!albumCreateForm.get('genre').valid && 
-            (albumCreateForm.get('genre').dirty || submitted)">
-            Please provide a valid genre
-        </div>
+    <label>Genre</label>
+    <input type="text" id="genre" formControlName="genre">
+    <div *ngIf="!albumCreateForm.get('genre').valid && 
+        (albumCreateForm.get('genre').dirty || submitted)">
+        Please provide a valid genre
+    </div>
 
     <button type="submit" [disabled]="!albumCreateForm.valid">Submit</button>
 </form>

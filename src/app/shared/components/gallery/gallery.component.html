@@ -1,9 +1,26 @@
-<p>gallery works!</p>
 
-<div *ngIf="albumList">
-    <div *ngFor="let album of albumList">
+<div *ngIf="albumList"> 
+    <div class="c-gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-3" *ngFor="let album of albumList">
 
-        <h4>{{album.title}}</h4>
-    
+                    <div class="c-gallery__item">
+                        <img class="c-gallery__image" src="{{album.coverUrl}}" alt="{{album.title}} cover">    
+                        <h3 class="c-gallery__title">{{album.title}}</h3>
+                        <h4 class="c-gallery__subtitle">{{album.artist}}</h4>
+                        <div class="c-gallery__text">
+                            <p>{{album.year}}</p>
+                            <p>{{album.genre}}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>

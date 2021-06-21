@@ -13,11 +13,11 @@
     </div>
 
     <label>Artist</label>
-    <select formControlName="artist">
-        <option *ngFor="let artist of artistList" [value]="artist">
-         {{ artist.name }}
+    <select *ngIf="isAddMode" formControlName="artist">
+        <option *ngFor="let artist of artistList" [value]="artist._id">
+         {{ artist.name }} 
         </option>
-      </select> 
+    </select> 
 
     <label>Cover</label>
     <input type="text" id="cover" formControlName="cover">

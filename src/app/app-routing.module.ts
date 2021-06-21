@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'albums', pathMatch: 'full'},
   { path: 'albums', component: AlbumsPageComponent, pathMatch: 'full' },
-  { path: 'albums/edit', component: AlbumsEditPageComponent}
+  { path: 'albums/edit', component: AlbumsEditPageComponent},
+  { path: 'albums/edit/:id', component: AlbumsEditPageComponent}
 ];
 
 @NgModule({

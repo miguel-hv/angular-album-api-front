@@ -1,3 +1,4 @@
+import { AlbumInterface } from './../../../core/models/AlbumInterface';
 import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -15,8 +16,8 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  albumDelete(album: string){
-    this.albumService.deleteAlbum(album).subscribe();
+  albumDelete(albumId: string){
+    this.albumService.deleteAlbum(albumId).subscribe();
     window.location.reload();
   }
 

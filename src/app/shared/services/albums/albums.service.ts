@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 
 const baseUrl = 'http://localhost:3000/';
 
-const albumsGet = baseUrl + 'albums/all';
-const albumPost = baseUrl + 'album';
+const albumsAllUrl = baseUrl + 'albums/all';
+const albumSingleUrl = baseUrl + 'album';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +15,24 @@ export class AlbumsService {
   constructor(private http: HttpClient) {}
     
   getAlbums() {
-    return this.http.get(albumsGet);
+    return this.http.get(albumsAllUrl);
   } 
   
-  addAlbum (album:AlbumInterface) {
-    return this.http.post(albumPost, album);
+  getAlbum(albumId: string) {
+    return this.http.get(`${albumSingleUrl}/${albumId}`);
+  } 
+
+  addAlbum (album: AlbumInterface) {
+    return this.http.post(albumSingleUrl, album);
   }
 
-  deleteAlbum (album: string) {
-    console.log('delete ejecutado'+`${albumPost}/${album}`);
-    return this.http.delete(`${albumPost}/${album}`);
+  deleteAlbum (albumId: string) {
+    return this.http.delete(`${albumSingleUrl}/${albumId}`);
   }
+
+  updateAlbum (album:AlbumInterface, albumId:string) {
+    return this.http.put(`${albumSingleUrl}/${albumId}`, album);
+  }
+
 
 }

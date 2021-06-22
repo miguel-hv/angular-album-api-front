@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'albums', component: AlbumsPageComponent, pathMatch: 'full' },
   { path: 'albums/edit', component: AlbumsEditPageComponent},
   { path: 'albums/edit/:id', component: AlbumsEditPageComponent}
+  // { path: 'artists', component: ArtistsPageComponent}
 ];
 
 @NgModule({

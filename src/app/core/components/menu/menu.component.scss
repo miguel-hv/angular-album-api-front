@@ -1,0 +1,22 @@
+
+.c-menu {
+    text-transform: uppercase;
+
+    &__image {
+        max-width: 25vw;
+    }
+    &__link {
+        // text-transform: uppercase;
+        font-weight: 700;
+        padding: 0px 20px;
+        padding-top: 12px;
+        padding-bottom: 19px;
+        border-radius: 5px;
+        &--active{
+            background-color: var(--color-background-main);
+        }
+    }
+    &__title {
+        text-align: right;
+    }
+}

@@ -1,4 +1,12 @@
 body {
-    background-color: var(--color-background);
+    background-color: var(--color-background-main);
     font-family: var(--font-main);
+}
+
+nav {
+    background-color: var(--color-background-contrast);
+}
+
+footer {
+    background-color: var(--color-background-contrast);
 }

@@ -3,3 +3,10 @@
 body {
     --font-main: Lato;
 }
+
+.s-font-primary {
+    text-transform: uppercase;
+    &--strong {
+        font-weight: 700;
+    }
+}

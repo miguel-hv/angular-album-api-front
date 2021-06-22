@@ -1,0 +1,9 @@
+.c-footer {
+    color: var(--color-text-pale);
+    &__text{
+        width: 16vw;
+    }
+    &__contact {
+        text-align: right;
+    }
+}

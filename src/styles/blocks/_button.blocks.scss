@@ -1,0 +1,11 @@
+.b-button-card {
+    background-color: var(--color-background-contrast);
+    border: 2px solid var(--color-text-pale);
+    border-radius: 5px;
+    padding: 24px;
+    cursor: pointer;
+    &:active {
+        background-color: var(--color-text-pale);
+        color: var(--color-background-contrast);
+    }
+}

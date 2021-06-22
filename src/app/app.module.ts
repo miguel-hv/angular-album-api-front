@@ -10,6 +10,8 @@ import { GalleryComponent } from './shared/components/gallery/gallery.component'
 import { AlbumsService } from './shared/services/albums/albums.service';
 import { AlbumsEditPageComponent } from './pages/albums-page/pages/albums-edit-page/albums-edit-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './core/components/menu/menu.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlbumsPageComponent,
     GalleryComponent,
     AlbumsEditPageComponent,
+    MenuComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

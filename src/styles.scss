@@ -2,4 +2,8 @@
 
 @import '~bootstrap/scss/bootstrap-grid';
 
-@import './styles/generic/reset.scss';
+@import './styles/generic/reset';
+
+@import './styles/settings/colors.settings';
+@import './styles/settings/fonts.settings';
+@import './styles/elements/body.elements';

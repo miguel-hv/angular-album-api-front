@@ -35,11 +35,12 @@ export class ArtistEditPageComponent implements OnInit {
     
     if(this.artistsCreateForm.valid){
 
-      const artist: ArtistInterface = {
-        _id: '',
+      // const artist: ArtistInterface = { 
+      const artist: any = {
+        // _id: '',
         name: this.artistsCreateForm.get('name').value,
         photoUrl: this.artistsCreateForm.get('photoUrl').value,
-        birthDate: this.artistsCreateForm.get('birthDate').value,
+        birthdate: this.artistsCreateForm.get('birthDate').value,
         deathDate: this.artistsCreateForm.get('deathDate').value,
       }
 

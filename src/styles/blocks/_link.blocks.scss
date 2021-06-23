@@ -1,17 +1,10 @@
 .b-link {
-    background-color: var(--color-background-contrast);
-    border: 2px solid var(--color-text-pale);
-    border-radius: 5px;
-    padding: 24px;
     cursor: pointer;
+
     &:hover{
-        background-color: var(--color-kenjo-green);
+        color: var(--color-kenjo-green);
     }
     &:active {
-        background-color: var(--color-text-pale);
         color: var(--color-background-contrast);
-    }
-    &__main {
-        font-weight: 700;
     }
 }

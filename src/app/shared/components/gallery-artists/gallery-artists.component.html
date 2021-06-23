@@ -1,0 +1,25 @@
+<div *ngIf="artistList"> 
+    <div class="c-gallery-artists">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4 mb-3" *ngFor="let artist of artistList">
+
+                    <div class="c-gallery-artists__item">
+                        <div class="c-gallery-artists__image-wrap">
+                            <img class="c-gallery-artists__image" src="{{artist.photoUrl}}" alt="{{artist.name}} cover">    
+                        </div>
+                        <h2 class="c-gallery-artists__title">{{artist.name}}</h2>
+                        <div class="c-gallery-artists__text">
+                            <p>{{ artist.birthDate | date }} - {{ artist.deathDate | date }}</p>
+                        </div>
+                        <!-- <div class="d-flex justify-content-between">
+                            <button class="b-button b-button__card" [routerLink]="['/artists/edit/'+ artist._id]">Edit</button>
+                            <button class="b-button b-button__card" (click)="artistDelete(artist._id)">Delete</button>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

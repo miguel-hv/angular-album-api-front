@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  @Input() albumList:any;
+  @Input() albumList: any;
 
   constructor(private albumService: AlbumsService) { }
 

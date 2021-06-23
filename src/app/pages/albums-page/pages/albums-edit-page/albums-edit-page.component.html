@@ -1,10 +1,10 @@
 <div class="b-form">
 
     <div class="o-text-centered mt-5 mb-3">
-        <h2 class="s-font-primary">Add Album</h2>
+        <h2 class="s-font-primary">Add New Album</h2>
         <p>Add albums from an existing artist.</p>
-        <!-- <p><a> If your artist does not exist you can create it here </a></p> -->
-        <p><a> Go back to collection </a></p>
+        <a class="b-link" [routerLink]="['/artists/edit']"><p> If your artist does not exist you can create it here </p></a>
+        <a class="b-link" [routerLink]="['/albums']"><p> Go back to collection </p></a>
     </div>
     <form (ngSubmit)="onSubmit()" [formGroup]="albumCreateForm">
 
@@ -43,7 +43,13 @@
             Please provide a valid genre
         </div>
 
-        <button class="b-button" type="submit" [disabled]="!albumCreateForm.valid">Submit</button>
+        <button 
+            class="b-button" 
+            type="submit" 
+            [disabled]="!albumCreateForm.valid"
+        >
+            Submit
+        </button>
     </form>
 
 </div>

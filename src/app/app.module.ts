@@ -12,6 +12,9 @@ import { AlbumsEditPageComponent } from './pages/albums-page/pages/albums-edit-p
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { FooterComponent } from './core/components/footer/footer.component';
+import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
+import { GalleryArtistsComponent } from './shared/components/gallery-artists/gallery-artists.component';
+import { ArtistEditPageComponent } from './pages/artist-page/pages/artist-edit-page/artist-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { FooterComponent } from './core/components/footer/footer.component';
     AlbumsEditPageComponent,
     MenuComponent,
     FooterComponent,
+    ArtistPageComponent,
+    GalleryArtistsComponent,
+    ArtistEditPageComponent,
   ],
   imports: [
     BrowserModule,

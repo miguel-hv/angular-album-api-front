@@ -4,7 +4,7 @@ import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 import { AlbumInterface } from './../../../../core/models/AlbumInterface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-albums-edit-page',
@@ -25,7 +25,9 @@ export class AlbumsEditPageComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private route: ActivatedRoute,
     private artistsService: ArtistsService, 
-    private albumsService: AlbumsService ) { 
+    private albumsService: AlbumsService,
+    private router: Router
+     ) { 
 
     this.albumCreateForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -39,19 +41,16 @@ export class AlbumsEditPageComponent implements OnInit {
   ngOnInit(): void {
     this.albumId = this.route.snapshot.params['id'];
     this.isAddMode = !this.albumId;
-    console.log('addmode'+this.isAddMode);
 
     this.artistsService.getArtists()
     .subscribe((data: any)=>{
       this.artistList = data; 
-      console.log(data);
       });
 
     if (!this.isAddMode){
       this.albumsService.getAlbum(this.albumId)
       .subscribe((data: any)=>{
         // this.albumFetch = data; //TODO: delete line
-        console.log(data);
         this.artistList = [{
           _id:'',
           name: data.artistId,
@@ -81,15 +80,17 @@ export class AlbumsEditPageComponent implements OnInit {
         year: this.albumCreateForm.get('year').value,
         genre: this.albumCreateForm.get('genre').value,
       }
-      console.log(album.title);
 
-      // this.albumCreateForm.reset();
       if (this.isAddMode){
         this.albumsService.addAlbum(album).subscribe();
       } else {
         this.albumsService.updateAlbum(album,this.albumId).subscribe();
       }
       this.submitted = false;
+      this.albumCreateForm.reset();
+      this.router.navigate(['/albums']);
+
+
     }
   }
 

@@ -1,0 +1,46 @@
+<div class="b-form">
+
+    <div class="o-text-centered mt-5 mb-3">
+        <h2 class="s-font-primary">Add New Artist</h2>
+        <a class="b-link" [routerLink]="['/artists']"><p> Go back to artists </p></a>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="artistsCreateForm">
+
+        <label class="b-form__label s-font-primary">Name</label>
+        <input class="b-form__input" type="text" id="name" formControlName="name">
+        <div class="b-form__warning" *ngIf="!artistsCreateForm.get('name').valid && 
+            (artistsCreateForm.get('name').dirty || submitted)">
+            Please provide a valid name
+        </div>
+
+        <label class="b-form__label s-font-primary">Photo</label>
+        <input class="b-form__input" type="text" id="photoUrl" formControlName="photoUrl">
+        <div class="b-form__warning" *ngIf="!artistsCreateForm.get('photoUrl').valid && 
+            (artistsCreateForm.get('photoUrl').dirty || submitted)">
+            Please provide a valid url
+        </div>
+
+        <label class="b-form__label s-font-primary">Birth date</label>
+        <input class="b-form__input" type="text" id="birthDate" formControlName="birthDate">
+        <div class="b-form__warning" *ngIf="!artistsCreateForm.get('birthDate').valid && 
+            (artistsCreateForm.get('birthDate').dirty || submitted)">
+            Please provide a valid birth date
+        </div>
+
+        <label class="b-form__label s-font-primary">Death date</label>
+        <input class="b-form__input" type="text" id="deathDate" formControlName="deathDate">
+        <div class="b-form__warning" *ngIf="!artistsCreateForm.get('deathDate').valid && 
+            (artistsCreateForm.get('deathDate').dirty || submitted)">
+            Please provide a valid death date
+        </div>
+
+        <button 
+            class="b-button" 
+            type="submit" 
+            [disabled]="!artistsCreateForm.valid"
+        >
+            Submit
+        </button>
+    </form>
+
+</div>

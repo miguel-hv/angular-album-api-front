@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "60ce298e2e2d0c001aac3df0"
+  },
+  "title": "Motörhead",
+  "artistId": {
+    "$oid": "60ce292e6504f20ec2d50b69"
+  },
+  "coverUrl": "http://vanyaland.com/wp-content/uploads/2017/01/1977-Motorhead.jpg",
+  "year": 1977,
+  "genre": "rock and roll",
+  "_createdAt": {
+    "$date": "2021-06-19T17:29:50.091Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-19T17:29:50.091Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35b4dbaf621001c6a05f1"
+  },
+  "title": "Two hands",
+  "artistId": {
+    "$oid": "60d35a6ebaf621001c6a05f0"
+  },
+  "coverUrl": "https://img.discogs.com/h5B2D8p3u0f4Yba65TCbV1z9ccE=/fit-in/300x300/filters:strip_icc():format(webp):mode_rgb():quality(40)/discogs-images/R-7055135-1432655214-7482.jpeg.jpg",
+  "year": 2015,
+  "genre": "alternative rock",
+  "_createdAt": {
+    "$date": "2021-06-23T16:03:25.957Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:04:12.826Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35baebaf621001c6a05f2"
+  },
+  "title": "Turbowolf",
+  "artistId": {
+    "$oid": "60d35a6ebaf621001c6a05f0"
+  },
+  "coverUrl": "https://www.punkrocktheory.com/sites/default/files/turbowolf_0.jpg",
+  "year": 2011,
+  "genre": "",
+  "_createdAt": {
+    "$date": "2021-06-23T16:05:02.227Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:05:02.227Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35c27baf621001c6a05f3"
+  },
+  "title": "You're a Woman I'm a Machine",
+  "artistId": {
+    "$oid": "60d3578bbaf621001c6a05ec"
+  },
+  "coverUrl": "https://images-na.ssl-images-amazon.com/images/I/81TErBIfm7L._AC_SL1201_.jpg",
+  "year": 2006,
+  "genre": "dance punk",
+  "_createdAt": {
+    "$date": "2021-06-23T16:07:03.488Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:07:03.488Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35cb7baf621001c6a05f4"
+  },
+  "title": "Are you Experienced?",
+  "artistId": {
+    "$oid": "60d359a0baf621001c6a05ef"
+  },
+  "coverUrl": "https://images-na.ssl-images-amazon.com/images/I/813PRde%2B9tL._SX355_.jpg",
+  "year": 1967,
+  "genre": "rock",
+  "_createdAt": {
+    "$date": "2021-06-23T16:09:27.755Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:09:27.755Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35d1bbaf621001c6a05f5"
+  },
+  "title": "Outrage! is Now",
+  "artistId": {
+    "$oid": "60d3578bbaf621001c6a05ec"
+  },
+  "coverUrl": "https://images-na.ssl-images-amazon.com/images/I/81gPb4dG1HL._SL1425_.jpg",
+  "year": 2017,
+  "genre": "alternative rock",
+  "_createdAt": {
+    "$date": "2021-06-23T16:11:07.110Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:11:32.591Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35d62baf621001c6a05f6"
+  },
+  "title": "Bomber",
+  "artistId": {
+    "$oid": "60ce292e6504f20ec2d50b69"
+  },
+  "coverUrl": "https://img.discogs.com/762_qoypTZs0cs1U2HBNrPBUIt0=/fit-in/600x598/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-419554-1221479743.jpeg.jpg",
+  "year": 1979,
+  "genre": "rock",
+  "_createdAt": {
+    "$date": "2021-06-23T16:12:18.382Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T16:12:18.382Z"
+  },
+  "__v": 0
+}]

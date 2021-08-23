@@ -16,9 +16,11 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  albumDelete(albumId: string){
-    this.albumService.deleteAlbum(albumId).subscribe();
-    window.location.reload();
+  albumDelete(albumId: string, albumTitle: string){
+    if(confirm(`Would you like to delete ${albumTitle}?`)){
+      this.albumService.deleteAlbum(albumId).subscribe();
+      window.location.reload();
+    }
   }
 
 }

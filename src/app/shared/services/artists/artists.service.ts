@@ -2,7 +2,7 @@ import { ArtistInterface } from './../../../core/models/ArtistInterface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:3001/';
 
 const artistsGet = baseUrl + 'artists/all';
 const artistPost = baseUrl + 'artist';

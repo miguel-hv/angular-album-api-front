@@ -16,7 +16,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <button class="b-button b-button__card" [routerLink]="['/albums/edit/'+ album._id]">Edit</button>
-                            <button class="b-button b-button__card" (click)="albumDelete(album._id)">Delete</button>
+                            <button class="b-button b-button__card" (click)="albumDelete(album._id, album.title)">Delete</button>
                         </div>
                     </div>
 

@@ -1,0 +1,70 @@
+[{
+  "_id": "60ce292e6504f20ec2d50b69",
+  "name": "Motörhead",
+  "deathDate": {
+    "$date": "2015-01-01T00:00:00Z"
+  },
+  "photoUrl": "https://imagenes.elpais.com/resizer/LzOqw2U-heU2xO6sSJSZv3HF7uw=/1960x0/ep01.epimg.net/elpais/imagenes/2019/11/19/icon/1574168233_923126_1574841384_noticia_fotograma.jpg",
+  "birthdate": {
+    "$date": "1975-01-01T00:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "60d3578bbaf621001c6a05ec"
+  },
+  "name": "Death from above 1979",
+  "photoUrl": "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/9/3/1409753379615/c2a6c217-d1ac-40c4-b5bd-199213ceaac2-2060x1236.jpeg?width=445&quality=45&auto=format&fit=max&dpr=2&s=df421488ae0ebf38e05b6c16f19910de",
+  "birthdate": {
+    "$date": "2001-02-05T00:00:00Z"
+  },
+  "deathDate": {
+    "$date": "2006-03-08T00:00:00Z"
+  },
+  "_createdAt": {
+    "$date": "2021-06-23T15:47:23.989Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T15:47:23.989Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d359a0baf621001c6a05ef"
+  },
+  "name": "Jimi",
+  "photoUrl": "https://www.diariovivo.com/wp-content/uploads/2020/11/jimi-hendrix-live-in-maui.jpg",
+  "birthdate": {
+    "$date": {
+      "$numberLong": "-125884800000"
+    }
+  },
+  "deathDate": {
+    "$date": "1970-09-17T00:00:00Z"
+  },
+  "_createdAt": {
+    "$date": "2021-06-23T15:56:16.348Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T15:56:16.348Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d35a6ebaf621001c6a05f0"
+  },
+  "name": "Turbowolf",
+  "photoUrl": "https://i2.wp.com/www.scienceofnoise.net/wp-content/uploads/2019/03/turbowolf.jpg",
+  "birthdate": {
+    "$date": "2008-01-01T00:00:00Z"
+  },
+  "deathDate": {
+    "$date": "2021-06-23T00:00:00Z"
+  },
+  "_createdAt": {
+    "$date": "2021-06-23T15:59:42.686Z"
+  },
+  "_updatedAt": {
+    "$date": "2021-06-23T15:59:42.686Z"
+  },
+  "__v": 0
+}]

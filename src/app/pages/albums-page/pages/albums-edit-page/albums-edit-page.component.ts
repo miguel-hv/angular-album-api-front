@@ -19,7 +19,6 @@ export class AlbumsEditPageComponent implements OnInit {
   isAddMode: boolean = false;
   submitted: boolean = false;
   artistList: ArtistInterface[] = []; 
-  // albumFetch: any = null; //TODO: delete line
   
   constructor(
     private formBuilder: FormBuilder, 
@@ -33,8 +32,8 @@ export class AlbumsEditPageComponent implements OnInit {
       title: ['', Validators.required],
       artist: ['', Validators.required],
       cover: [''],
-      year: ['', [Validators.required, Validators.min(0), Validators.max(9999)]],
-      genre: ['', Validators.required],
+      year: ['', [Validators.min(0), Validators.max(9999)]],
+      genre: [''],
     });
   }
 
@@ -50,7 +49,6 @@ export class AlbumsEditPageComponent implements OnInit {
     if (!this.isAddMode){
       this.albumsService.getAlbum(this.albumId)
       .subscribe((data: any)=>{
-        // this.albumFetch = data; //TODO: delete line
         this.artistList = [{
           _id:'',
           name: data.artistId,

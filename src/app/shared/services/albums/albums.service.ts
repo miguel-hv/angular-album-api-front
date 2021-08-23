@@ -2,7 +2,7 @@ import { AlbumInterface } from './../../../core/models/AlbumInterface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'http://localhost:3001/';
 
 const albumsAllUrl = baseUrl + 'albums/all';
 const albumSingleUrl = baseUrl + 'album';

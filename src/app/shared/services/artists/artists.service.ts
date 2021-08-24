@@ -1,6 +1,7 @@
-import { ArtistInterface } from './../../../core/models/ArtistInterface';
+import { ArtistInterface, ArtistInterfaceJson } from './../../../core/models/ArtistInterface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:3001/';
 
@@ -14,11 +15,11 @@ export class ArtistsService {
 
   constructor(private http: HttpClient) {}
 
-  getArtists() {
-    return this.http.get(artistsGet);
+  getArtists(): Observable<ArtistInterfaceJson[]> {
+    return this.http.get<ArtistInterfaceJson[]>(artistsGet);
   } 
   
-  addArtist (artist:ArtistInterface) {
-    return this.http.post(artistPost, artist);
+  addArtist(artist:ArtistInterface): Observable<ArtistInterface> {
+    return this.http.post<ArtistInterface>(artistPost, artist);
   }
 }

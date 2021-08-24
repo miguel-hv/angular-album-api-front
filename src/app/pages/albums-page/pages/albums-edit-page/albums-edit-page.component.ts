@@ -1,7 +1,7 @@
-import { ArtistInterface } from './../../../../core/models/ArtistInterface';
+import { ArtistInterfaceJson } from './../../../../core/models/ArtistInterface';
 import { ArtistsService } from './../../../../shared/services/artists/artists.service';
 import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
-import { AlbumInterface } from './../../../../core/models/AlbumInterface';
+import { AlbumInterface, AlbumInterfaceJson } from './../../../../core/models/AlbumInterface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,11 +13,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlbumsEditPageComponent implements OnInit {
 
-  getTodayDate(): string {
+  getTodayDate(): number {
     const dateToday= new Date;
     const offset = dateToday.getTimezoneOffset();
     const dateTodayParsed = new Date(dateToday.getTime() - (offset*60*1000));
-    return dateTodayParsed.toISOString().split('T')[0];
+    return +dateTodayParsed.toISOString().substr(0,4);
   }
 
   // albumCreateForm: FormGroup = null;
@@ -25,7 +25,7 @@ export class AlbumsEditPageComponent implements OnInit {
   albumId: string = "";
   isAddMode: boolean = false;
   submitted: boolean = false;
-  artistList: ArtistInterface[] = []; 
+  artistList: ArtistInterfaceJson[] = []; 
   reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   
   constructor(
@@ -40,7 +40,7 @@ export class AlbumsEditPageComponent implements OnInit {
       title: ['', Validators.required],
       artist: ['', Validators.required],
       cover: ['', Validators.pattern(this.reg)],
-      year: ['', [Validators.min(1909), Validators.max(2030)]],
+      year: ['', [Validators.min(1909), Validators.max(this.getTodayDate())]],
       genre: [''],
     });
   }
@@ -50,13 +50,13 @@ export class AlbumsEditPageComponent implements OnInit {
     this.isAddMode = !this.albumId;
 
     this.artistsService.getArtists()
-    .subscribe((data: any)=>{
+    .subscribe((data: ArtistInterfaceJson[])=>{
       this.artistList = data; 
       });
 
     if (!this.isAddMode){
       this.albumsService.getAlbum(this.albumId)
-      .subscribe((data: any)=>{
+      .subscribe((data: AlbumInterfaceJson)=>{
         this.artistList = [{
           _id:'',
           name: data.artistId,
@@ -66,7 +66,7 @@ export class AlbumsEditPageComponent implements OnInit {
         }];
         this.albumCreateForm.controls['title'].setValue(data.title);
         this.albumCreateForm.controls['artist'].setValue(data.artistId);
-        this.albumCreateForm.controls['cover'].setValue(data.cover);
+        this.albumCreateForm.controls['cover'].setValue(data.coverUrl);
         this.albumCreateForm.controls['year'].setValue(data.year);
         this.albumCreateForm.controls['genre'].setValue(data.genre);
         });

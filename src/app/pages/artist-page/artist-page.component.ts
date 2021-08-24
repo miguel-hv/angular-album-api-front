@@ -1,3 +1,4 @@
+import { ArtistInterfaceJson } from './../../core/models/ArtistInterface';
 import { ArtistInterface } from 'src/app/core/models/ArtistInterface';
 import { ArtistsService } from './../../shared/services/artists/artists.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,6 @@ export class ArtistPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.artistsService.getArtists()
-      .subscribe((data: any)=>{this.artistList = data;});
+      .subscribe((data: ArtistInterfaceJson[])=>{this.artistList = data;});
   }
 }

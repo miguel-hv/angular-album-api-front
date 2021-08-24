@@ -4,13 +4,18 @@
     flex-direction: column;
     align-items: center;
 
-    &__label{
+    &__group {
+        margin-bottom: 12px;
+    }
+    &__label {
         display: block;
         margin-bottom: 6px;
     }
-
-    &__input{
+    &__input {
         display: block;
-        margin-bottom: 12px;
+    }
+    &__warning {
+        color: var(--color-warning);
+        font-size: var(--font-size-footnote);
     }
 }

@@ -1,55 +1,87 @@
 <div class="b-form">
-
-    <div class="o-text-centered mt-5 mb-3">
-        <h2 class="s-font-primary">Add New Album</h2>
-        <p>Add albums from an existing artist.</p>
-        <a class="b-link" [routerLink]="['/artists/edit']"><p> If your artist does not exist you can create it here </p></a>
-        <a class="b-link" [routerLink]="['/albums']"><p> Go back to collection </p></a>
+  <div class="o-text-centered mt-5 mb-3">
+    <h2 class="s-font-primary">Add New Album</h2>
+    <p>Add albums from an existing artist.</p>
+    <a class="b-link" [routerLink]="['/artists/edit']"
+      ><p>If your artist does not exist you can create it here</p></a
+    >
+    <a class="b-link" [routerLink]="['/albums']"
+      ><p>Go back to collection</p></a
+    >
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="albumCreateForm">
+    <label class="b-form__label s-font-primary">Title</label>
+    <input
+      class="b-form__input"
+      type="text"
+      id="title"
+      formControlName="title"
+    />
+    <div
+      class="b-form__warning"
+      *ngIf="
+        !albumCreateForm.get('title').valid &&
+        (albumCreateForm.get('title').dirty || submitted)
+      "
+    >
+      Please provide a valid name
     </div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="albumCreateForm">
 
-        <label class="b-form__label s-font-primary">Title</label>
-        <input class="b-form__input" type="text" id="title" formControlName="title">
-        <div class="b-form__warning" *ngIf="!albumCreateForm.get('title').valid && 
-            (albumCreateForm.get('title').dirty || submitted)">
-            Please provide a valid name
-        </div>
+    <label class="b-form__label s-font-primary">Artist</label>
+    <select class="b-form__input" *ngIf="isAddMode" formControlName="artist">
+      <option *ngFor="let artist of artistList" [value]="artist._id">
+        {{ artist.name }}
+      </option>
+    </select>
 
-        <label class="b-form__label s-font-primary">Artist</label>
-        <select class="b-form__input"  *ngIf="isAddMode" formControlName="artist">
-            <option *ngFor="let artist of artistList" [value]="artist._id">
-            {{ artist.name }} 
-            </option>
-        </select> 
+    <label class="b-form__label s-font-primary">Cover</label>
+    <input
+      class="b-form__input"
+      type="text"
+      id="cover"
+      formControlName="cover"
+    />
+    <div
+      class="b-form__warning"
+      *ngIf="
+        !albumCreateForm.get('cover').valid &&
+        (albumCreateForm.get('cover').dirty || submitted)
+      "
+    >
+      Please provide a valid url
+    </div>
 
-        <label class="b-form__label s-font-primary">Cover</label>
-        <input class="b-form__input" type="text" id="cover" formControlName="cover">
-        <div class="b-form__warning" *ngIf="!albumCreateForm.get('cover').valid && 
-            (albumCreateForm.get('cover').dirty || submitted)">
-            Please provide a valid url
-        </div>
+    <label class="b-form__label s-font-primary">Year</label>
+    <input class="b-form__input" type="text" id="year" formControlName="year" />
+    <div
+      class="b-form__warning"
+      *ngIf="
+        !albumCreateForm.get('year').valid &&
+        (albumCreateForm.get('year').dirty || submitted)
+      "
+    >
+      Please provide a valid year
+    </div>
 
-        <label class="b-form__label s-font-primary">Year</label>
-        <input class="b-form__input" type="text" id="year" formControlName="year">
-        <div class="b-form__warning" *ngIf="!albumCreateForm.get('year').valid && 
-            (albumCreateForm.get('year').dirty || submitted)">
-            Please provide a valid year
-        </div>
+    <label class="b-form__label s-font-primary">Genre</label>
+    <input
+      class="b-form__input"
+      type="text"
+      id="genre"
+      formControlName="genre"
+    />
+    <div
+      class="b-form__warning"
+      *ngIf="
+        !albumCreateForm.get('genre').valid &&
+        (albumCreateForm.get('genre').dirty || submitted)
+      "
+    >
+      Please provide a valid genre
+    </div>
 
-        <label class="b-form__label s-font-primary">Genre</label>
-        <input class="b-form__input" type="text" id="genre" formControlName="genre">
-        <div class="b-form__warning" *ngIf="!albumCreateForm.get('genre').valid && 
-            (albumCreateForm.get('genre').dirty || submitted)">
-            Please provide a valid genre
-        </div>
-
-        <button 
-            class="b-button" 
-            type="submit" 
-            [disabled]="!albumCreateForm.valid"
-        >
-            Submit
-        </button>
-    </form>
-
+    <button class="b-button" type="submit" [disabled]="!albumCreateForm.valid">
+      Submit
+    </button>
+  </form>
 </div>

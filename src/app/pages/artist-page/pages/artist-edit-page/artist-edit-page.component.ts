@@ -15,6 +15,15 @@ export class ArtistEditPageComponent implements OnInit {
   artistsCreateForm: any = null;
   submitted: boolean = false;
 
+  getTodayDate(): string {
+    const dateToday= new Date;
+    const offset = dateToday.getTimezoneOffset();
+    const dateTodayParsed = new Date(dateToday.getTime() - (offset*60*1000));
+    return dateTodayParsed.toISOString().split('T')[0];
+  }
+  
+
+
   constructor(
     private formBuilder: FormBuilder,
     private artistsService: ArtistsService, 
@@ -24,7 +33,7 @@ export class ArtistEditPageComponent implements OnInit {
     name: ['', Validators.required],
     photoUrl: ['', Validators.required],
     birthDate: ['', Validators.required],
-    deathDate: ['', [Validators.required, Validators.min(0), Validators.max(9999)]],
+    deathDate: [''],
   });}
 
   ngOnInit(): void {

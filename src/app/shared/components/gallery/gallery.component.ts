@@ -1,6 +1,9 @@
 import { AlbumInterface } from './../../../core/models/AlbumInterface';
 import { AlbumsService } from 'src/app/shared/services/albums/albums.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+let subscriptionDelete: Subscription;
 
 @Component({
   selector: 'app-gallery',
@@ -10,6 +13,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GalleryComponent implements OnInit {
 
   @Input() albumList: any;
+  // @Input() albumList: AlbumInterface[] = [];
 
   constructor(private albumService: AlbumsService) { }
 

@@ -10,74 +10,119 @@
     >
   </div>
   <form (ngSubmit)="onSubmit()" [formGroup]="albumCreateForm">
-    <label class="b-form__label s-font-primary">Title</label>
-    <input
-      class="b-form__input"
-      type="text"
-      id="title"
-      formControlName="title"
-    />
-    <div
-      class="b-form__warning"
-      *ngIf="
-        !albumCreateForm.get('title').valid &&
-        (albumCreateForm.get('title').dirty || submitted)
-      "
-    >
-      Please provide a valid name
+    <div class="b-form__group">
+      <label class="b-form__label s-font-primary">Title</label>
+      <input
+        class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !albumCreateForm.get('title').valid &&
+            (albumCreateForm.get('title').dirty || submitted)
+        }"
+        type="text"
+        id="title"
+        placeholder="album title"
+        formControlName="title"
+      />
+      <div
+        class="b-form__warning"
+        *ngIf="
+          !albumCreateForm.get('title').valid &&
+          (albumCreateForm.get('title').dirty || submitted)
+        "
+      >
+        Please provide a valid name
+      </div>
     </div>
 
-    <label class="b-form__label s-font-primary">Artist</label>
-    <select class="b-form__input" *ngIf="isAddMode" formControlName="artist">
-      <option *ngFor="let artist of artistList" [value]="artist._id">
-        {{ artist.name }}
-      </option>
-    </select>
-
-    <label class="b-form__label s-font-primary">Cover</label>
-    <input
-      class="b-form__input"
-      type="text"
-      id="cover"
-      formControlName="cover"
-    />
-    <div
-      class="b-form__warning"
-      *ngIf="
-        !albumCreateForm.get('cover').valid &&
-        (albumCreateForm.get('cover').dirty || submitted)
-      "
-    >
-      Please provide a valid url
+    <div class="b-form__group">
+      <label class="b-form__label s-font-primary">Artist</label>
+      <select class="b-form__input" *ngIf="isAddMode" formControlName="artist">
+        <option *ngFor="let artist of artistList" [value]="artist._id">
+          {{ artist.name }}
+        </option>
+      </select>
     </div>
 
-    <label class="b-form__label s-font-primary">Year</label>
-    <input class="b-form__input" type="text" id="year" formControlName="year" />
-    <div
-      class="b-form__warning"
-      *ngIf="
-        !albumCreateForm.get('year').valid &&
-        (albumCreateForm.get('year').dirty || submitted)
-      "
-    >
-      Please provide a valid year
+    <div class="b-form__group">
+      <label class="b-form__label s-font-primary">Cover</label>
+      <input
+        class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !albumCreateForm.get('cover').valid &&
+            (albumCreateForm.get('cover').dirty || submitted)
+        }"
+        type="text"
+        id="cover"
+        placeholder="cover url"
+        formControlName="cover"
+      />
+      <div
+        class="b-form__warning"
+        *ngIf="
+          !albumCreateForm.get('cover').valid &&
+          (albumCreateForm.get('cover').dirty || submitted)
+        "
+      >
+        Please provide a valid url
+      </div>
     </div>
 
-    <label class="b-form__label s-font-primary">Genre</label>
-    <input
-      class="b-form__input"
-      type="text"
-      id="genre"
-      formControlName="genre"
-    />
-    <div
-      class="b-form__warning"
-      *ngIf="
-        !albumCreateForm.get('genre').valid &&
-        (albumCreateForm.get('genre').dirty || submitted)
-      "
-    >
-      Please provide a valid genre
+    <div class="b-form__group">
+      <label class="b-form__label s-font-primary">Year</label>
+      <input
+        class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !albumCreateForm.get('year').valid &&
+            (albumCreateForm.get('year').dirty || submitted)
+        }"
+        type="number"
+        min="1909"
+        max="{{ getTodayDate() }}"
+        id="year"
+        placeholder="year of publication"
+        formControlName="year"
+      />
+      <div
+        class="b-form__warning"
+        *ngIf="
+          !albumCreateForm.get('year').valid &&
+          (albumCreateForm.get('year').dirty || submitted)
+        "
+      >
+        Please provide a valid year
+      </div>
+    </div>
+
+    <div class="b-form__group">
+      <label
+        class="b-form__label s-font-primary"
+        >Genre</label
+      >
+      <input
+        class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !albumCreateForm.get('genre').valid &&
+            (albumCreateForm.get('genre').dirty || submitted)
+        }"
+        type="text"
+        id="genre"
+        pattern="[a-zA-Z'-'\s]*"
+        placeholder="genre"
+        formControlName="genre"
+      />
+      <div
+        class="b-form__warning"
+        *ngIf="
+          !albumCreateForm.get('genre').valid &&
+          (albumCreateForm.get('genre').dirty || submitted)
+        "
+      >
+        Please provide a valid genre
+      </div>
     </div>
 
     <button class="b-button" type="submit" [disabled]="!albumCreateForm.valid">

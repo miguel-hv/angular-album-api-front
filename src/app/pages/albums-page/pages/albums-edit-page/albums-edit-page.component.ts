@@ -13,12 +13,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlbumsEditPageComponent implements OnInit {
 
+  getTodayDate(): string {
+    const dateToday= new Date;
+    const offset = dateToday.getTimezoneOffset();
+    const dateTodayParsed = new Date(dateToday.getTime() - (offset*60*1000));
+    return dateTodayParsed.toISOString().split('T')[0];
+  }
+
   // albumCreateForm: FormGroup = null;
   albumCreateForm: any = null;
   albumId: string = "";
   isAddMode: boolean = false;
   submitted: boolean = false;
   artistList: ArtistInterface[] = []; 
+  reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   
   constructor(
     private formBuilder: FormBuilder, 
@@ -31,8 +39,8 @@ export class AlbumsEditPageComponent implements OnInit {
     this.albumCreateForm = this.formBuilder.group({
       title: ['', Validators.required],
       artist: ['', Validators.required],
-      cover: [''],
-      year: ['', [Validators.min(0), Validators.max(9999)]],
+      cover: ['', Validators.pattern(this.reg)],
+      year: ['', [Validators.min(1909), Validators.max(2030)]],
       genre: [''],
     });
   }

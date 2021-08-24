@@ -4,11 +4,15 @@
     <a class="b-link" [routerLink]="['/artists']"><p>Go back to artists</p></a>
   </div>
   <form (ngSubmit)="onSubmit()" [formGroup]="artistsCreateForm">
-    
     <div class="b-form__group">
       <label class="b-form__label s-font-primary">Name</label>
       <input
         class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !artistsCreateForm.get('name').valid &&
+            (artistsCreateForm.get('name').dirty || submitted)
+        }"
         type="text"
         placeholder="artist name"
         id="name"
@@ -28,21 +32,26 @@
     <div class="b-form__group">
       <label class="b-form__label s-font-primary">Photo</label>
       <input
-      class="b-form__input"
-      type="url"
-      placeholder="photo url"
-      id="photoUrl"
-      formControlName="photoUrl"
-      pattern="https?://.+"
+        class="b-form__input"
+        [ngClass]="{
+          'b-form__input--warning':
+            !artistsCreateForm.get('photoUrl').valid &&
+            (artistsCreateForm.get('photoUrl').dirty || submitted)
+        }"
+        type="url"
+        placeholder="photo url"
+        id="photoUrl"
+        formControlName="photoUrl"
+        pattern="https?://.+"
       />
       <div
-      class="b-form__warning"
-      *ngIf="
-      !artistsCreateForm.get('photoUrl').valid &&
-      (artistsCreateForm.get('photoUrl').dirty || submitted)
-      "
+        class="b-form__warning"
+        *ngIf="
+          !artistsCreateForm.get('photoUrl').valid &&
+          (artistsCreateForm.get('photoUrl').dirty || submitted)
+        "
       >
-      Please provide a valid url
+        Please provide a valid url
       </div>
     </div>
 

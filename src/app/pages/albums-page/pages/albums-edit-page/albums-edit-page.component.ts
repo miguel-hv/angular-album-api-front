@@ -62,7 +62,7 @@ export class AlbumsEditPageComponent implements OnInit {
           name: data.artistId,
           photoUrl: '',
           birthdate: '',
-          deathDate: '',
+          deathdate: '',
         }];
         this.albumCreateForm.controls['title'].setValue(data.title);
         this.albumCreateForm.controls['artist'].setValue(data.artistId);

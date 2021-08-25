@@ -60,16 +60,16 @@
       <input
         class="b-form__input"
         type="date"
-        id="birthDate"
+        id="birthdate"
         min="1909-01-01"
         max="{{ getTodayDate() }}"
-        formControlName="birthDate"
+        formControlName="birthdate"
       />
       <div
         class="b-form__warning"
         *ngIf="
-          !artistsCreateForm.get('birthDate').valid &&
-          (artistsCreateForm.get('birthDate').dirty || submitted)
+          !artistsCreateForm.get('birthdate').valid &&
+          (artistsCreateForm.get('birthdate').dirty || submitted)
         "
       >
         Please provide a valid birth date
@@ -81,16 +81,16 @@
       <input
         class="b-form__input"
         type="date"
-        id="deathDate"
+        id="deathdate"
         min="1909-01-01"
         max="{{ getTodayDate() }}"
-        formControlName="deathDate"
+        formControlName="deathdate"
       />
       <div
         class="b-form__warning"
         *ngIf="
-          !artistsCreateForm.get('deathDate').valid &&
-          (artistsCreateForm.get('deathDate').dirty || submitted)
+          !artistsCreateForm.get('deathdate').valid &&
+          (artistsCreateForm.get('deathdate').dirty || submitted)
         "
       >
         Please provide a valid death date
@@ -106,3 +106,5 @@
     </button>
   </form>
 </div>
+
+

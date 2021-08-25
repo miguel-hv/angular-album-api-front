@@ -16,6 +16,8 @@ export class ArtistPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.artistsService.getArtists()
-      .subscribe((data: ArtistInterfaceJson[])=>{this.artistList = data;});
+      .subscribe((data: ArtistInterfaceJson[])=>{this.artistList = data;
+        console.log(data);});
+      
   }
 }

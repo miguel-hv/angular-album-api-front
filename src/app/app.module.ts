@@ -15,6 +15,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
 import { GalleryArtistsComponent } from './shared/components/gallery-artists/gallery-artists.component';
 import { ArtistEditPageComponent } from './pages/artist-page/pages/artist-edit-page/artist-edit-page.component';
+import { SnackbarComponent } from './shared/components/snackbar/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ArtistEditPageComponent } from './pages/artist-page/pages/artist-edit-p
     ArtistPageComponent,
     GalleryArtistsComponent,
     ArtistEditPageComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,

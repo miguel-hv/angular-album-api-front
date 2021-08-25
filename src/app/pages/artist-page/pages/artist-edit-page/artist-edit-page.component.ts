@@ -14,6 +14,8 @@ export class ArtistEditPageComponent implements OnInit {
   artistList: ArtistInterface[] = []; 
   artistsCreateForm: any = null;
   submitted: boolean = false;
+  messageSnackbar: string = "";
+  existsMessage: boolean = false;
 
   getTodayDate(): string {
     const dateToday= new Date;
@@ -21,8 +23,6 @@ export class ArtistEditPageComponent implements OnInit {
     const dateTodayParsed = new Date(dateToday.getTime() - (offset*60*1000));
     return dateTodayParsed.toISOString().split('T')[0];
   }
-  
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,8 +32,8 @@ export class ArtistEditPageComponent implements OnInit {
     this.artistsCreateForm = this.formBuilder.group({
     name: ['', Validators.required],
     photoUrl: ['', Validators.required],
-    birthDate: ['', Validators.required],
-    deathDate: [''],
+    birthdate: ['', Validators.required],
+    deathdate: [''],
   });}
 
   ngOnInit(): void {
@@ -45,15 +45,17 @@ export class ArtistEditPageComponent implements OnInit {
     if(this.artistsCreateForm.valid){
 
       const artist: ArtistInterface = { 
-        // _id: '',
         name: this.artistsCreateForm.get('name').value,
         photoUrl: this.artistsCreateForm.get('photoUrl').value,
-        birthdate: this.artistsCreateForm.get('birthDate').value,
-        deathDate: this.artistsCreateForm.get('deathDate').value,
+        birthdate: this.artistsCreateForm.get('birthdate').value,
+        deathdate: this.artistsCreateForm.get('deathdate').value,
       }
 
-      this.artistsService.addArtist(artist).subscribe();
-
+      this.artistsService.addArtist(artist).subscribe((artist) => {
+        console.log(artist);
+        alert(`Artist ${artist.name} was added to the gallery!`);
+      });
+      
       this.submitted = false;
       this.artistsCreateForm.reset();
       this.router.navigate(['/artists']);

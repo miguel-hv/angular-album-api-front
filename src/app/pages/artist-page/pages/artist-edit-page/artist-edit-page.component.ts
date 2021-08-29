@@ -53,12 +53,22 @@ export class ArtistEditPageComponent implements OnInit {
 
       this.artistsService.addArtist(artist).subscribe((artist) => {
         console.log(artist);
-        alert(`Artist ${artist.name} was added to the gallery!`);
+        if(artist){
+          alert(`Artist ${artist.name} was added to the collection!`);
+          this.artistsCreateForm.reset();
+          this.router.navigate(['/artists']);
+        }
+        // } else {
+        //   console.log("error artist");
+        //   alert(`Sorry, it was not possible to update the collection.`);
+        // }
+      },
+      (err)=>{
+        console.log(err);
+        alert(`Sorry, it was not possible to save your new artist.`);
       });
-      
       this.submitted = false;
-      this.artistsCreateForm.reset();
-      this.router.navigate(['/artists']);
+
 
     }
   }

@@ -6,7 +6,8 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const baseUrl = 'http://localhost:3001/';
+// const baseUrl = 'http://localhost:3001/';
+const baseUrl = 'https://node-album-api.herokuapp.com/';
 
 const albumsAllUrl = baseUrl + 'albums/all';
 const albumSingleUrl = baseUrl + 'album';

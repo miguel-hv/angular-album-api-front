@@ -6,8 +6,8 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-// const baseUrl = 'http://localhost:3001/';
-const baseUrl = 'https://node-album-api.herokuapp.com/';
+const baseUrl = 'http://localhost:3000/';
+// const baseUrl = 'https://node-album-api.herokuapp.com/';
 
 const albumsAllUrl = baseUrl + 'albums/all';
 const albumSingleUrl = baseUrl + 'album';
@@ -38,9 +38,15 @@ export class AlbumsService {
     album: AlbumInterface,
     albumId: string
   ): Observable<AlbumInterfaceJson> {
+    console.log('album',album);
+    console.log('albumId',albumId);
+    let albumJSON: AlbumInterfaceJson = {
+      ...album,
+      _id: albumId,
+    }
     return this.http.put<AlbumInterfaceJson>(
       `${albumSingleUrl}/${albumId}`,
-      album
+      albumJSON
     );
   }
 }

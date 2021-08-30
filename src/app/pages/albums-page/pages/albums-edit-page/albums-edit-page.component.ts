@@ -60,6 +60,7 @@ export class AlbumsEditPageComponent implements OnInit {
       this.albumsService
         .getAlbum(this.albumId)
         .subscribe((data: AlbumInterfaceJson) => {
+          console.log('data', data);
           this.artistList = [
             {
               _id: '',
@@ -89,7 +90,7 @@ export class AlbumsEditPageComponent implements OnInit {
         year: this.albumCreateForm.get('year').value,
         genre: this.albumCreateForm.get('genre').value,
       };
-
+console.log(album);
       if (this.isAddMode) {
         this.albumsService.addAlbum(album).subscribe((album) => {
           console.log(album);
@@ -104,12 +105,15 @@ export class AlbumsEditPageComponent implements OnInit {
           alert(`Sorry, it was not possible to save your album.`);
         });
       } else {
+        let albumJSON = {album, _id: this.albumId};
         this.albumsService
           .updateAlbum(album, this.albumId)
           .subscribe((album) => {
-            alert(`Album ${album.title} info was updated!`);
+          if(album){
+          alert(`Album info ${album.title} was updated!`);
             this.albumCreateForm.reset();
             this.router.navigate(['/albums']);
+          }
           },
           (err)=>{
             console.log(err);

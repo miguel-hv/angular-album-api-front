@@ -31,6 +31,7 @@ export class AlbumsService {
   }
 
   deleteAlbum(albumId: string): Observable<any> {
+    console.log('albumid',albumId);
     return this.http.delete(`${albumSingleUrl}/${albumId}`);
   }
 

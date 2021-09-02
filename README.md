@@ -4,4 +4,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Both apps were deployed in Heroku and can be visited [here](https://albums-api-dev-challenge.herokuapp.com).
 
+![artists page](https://res.cloudinary.com/dsxnjgo2i/image/upload/v1630575403/album%20api/artists_mlzqzq.png)
+![albums page](https://res.cloudinary.com/dsxnjgo2i/image/upload/v1630575405/album%20api/albums_hgjaww.png)
 
